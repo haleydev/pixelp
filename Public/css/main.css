@@ -1,0 +1,532 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    scroll-behavior: smooth;
+    color: var(--font-color-primary);
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+:root{
+    --primary-color: rgb(230 230 230);
+    --secondary-color: rgb(215 215 215);
+    --tertiary-color: rgb(225, 225, 225);
+    --font-color-primary: rgb(75, 75, 75);
+    --font-color-secondary: rgb(26, 26, 26);
+    --font-color-hover: rgb(180, 75, 75);
+    --border: 1px solid rgb(185, 185, 185);
+}
+
+.darkmode{
+    --primary-color: #2e2e2e;
+    --secondary-color: rgb(40 40 40);
+    --tertiary-color: rgb(60, 60, 60);
+    --font-color-primary: rgb(200 200 200);
+    --font-color-secondary: rgb(245 245 245);
+    --font-color-hover: rgb(180, 75, 75);
+    --border: 1px solid rgb(60 60 60);
+}
+
+::-webkit-scrollbar {
+    width: 4px;
+    background: var(--primary-color);    
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--font-color-primary);        
+}
+
+input:focus::-webkit-input-placeholder {
+    color: transparent;
+}
+
+.display-none{
+    display: none !important;
+}
+
+.active{
+    color: var(--font-color-hover);
+}
+
+.field-editable{
+    cursor: pointer;
+}
+
+.red{
+    color: rgb(179, 36, 36);
+    font-size: 18px !important;
+}
+
+.green{
+    color: rgb(24, 107, 24);
+    font-size: 18px !important;
+}
+
+/* principais */
+body{
+    background: var(--primary-color);
+    min-height: 100vh;
+    display: grid; 
+    grid-template-columns: max-content;
+    margin: 0 auto;  
+    width: 100%;
+    grid-template-areas:
+        "header main main"
+        "header main main"
+        "footer footer footer";
+}
+
+.main{
+    grid-area: main;
+    min-height: 95vh;
+   
+    margin-left: 300px;
+}
+
+.header{ 
+    background: var(--secondary-color);
+    grid-area: header;
+    width: 300px;
+    padding: 8px 5px 5px 5px;
+    border-right: var(--border);
+    position:fixed;
+    z-index: 100;
+    height: 100%;
+    left: 0;
+}
+
+.footer{   
+    max-height: 50px; 
+    border-top: var(--border);
+    padding: 10px 15px;    
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    grid-area: footer;
+    background: var(--secondary-color);
+}
+/* end principais */
+
+/* header */
+h1{
+    text-transform: uppercase;
+    font-size: 18px;
+    text-align: center;    
+}
+
+.header-p1{
+    padding-left: 2px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btns-header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btns-header a{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.header-p1 .material-icons,.material-icons-outlined{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 22px;
+    padding-left: 4px;
+}
+
+.header-p1 .material-icons:hover{
+    color: var(--font-color-hover);
+}
+
+.header-p1 .material-icons-outlined:hover{
+    color: var(--font-color-hover);
+}
+
+.user-log{
+    padding-left: 2px;    
+}
+
+/* form search */
+.div-search{
+    margin-top: 10px;
+    background: var(--primary-color);
+    display: flex;
+    width: 100%; 
+    align-items: center;
+    border: var(--border);
+    border-radius: 4px;
+    margin-bottom: 2px;
+}
+
+.total-results{
+    padding-left: 2px;  
+    margin-top: 3px;         
+    margin-bottom: 30px;   
+    /* text-transform: uppercase; */
+    font-size: 14px;
+}
+
+.input-search{
+    width: 100%;
+    border: none;    
+    padding: 5px 5px;
+    font-size: 17px;
+    background: none;
+}
+
+.sem-resultados{
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    width: 100%;
+    color: var(--font-color-hover);
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 8px;   
+}
+/* end form search */
+
+/* links header */
+.links{
+    list-style: none;
+    display: flex;    
+    flex-direction: column;
+}
+
+.links li button{
+    border: none;
+    background: none;
+    width: 100%;
+}
+
+.links li p{
+    cursor: pointer;
+  
+    text-align: center;
+    font-size: 16px;  
+ 
+    width: 100%;
+    display: flex;    
+    padding: 5px 2px;
+    border-bottom: var(--border) !important;    
+    
+}
+
+.links li p:hover{
+    color: var(--font-color-hover);
+}
+
+.icon-burger .line {
+    width: 30px;
+    height: 2px;
+    background-color: var(--font-color-primary);
+    margin: 8px;
+    border-radius: 2px;
+    transition: all .3s ease-in-out;
+}
+
+.icon-burger { 
+    background: var(--primary-color);
+    position: fixed;
+    right: 15px;
+    bottom: 8px;
+    display: none;
+    cursor: pointer;
+    align-items: center;
+    border-radius: 4px;
+    border: var(--border);
+}
+/* end links header */
+/* end header */
+
+/* tabela */
+.input-edit{
+    width: 100%;
+    border: none;
+    background: none;
+    color: var(--font-color-hover);
+}
+
+.table-id{
+    width: 50px;
+    text-align: center !important;
+}
+
+.tabela_th{
+    cursor: pointer;
+}
+
+.tabela-usuarios{
+    position: relative;
+    width: 100%;    
+    border-collapse: collapse;  
+    table-layout: auto;  
+}
+
+.tabela-usuarios th{
+    background: var(--secondary-color);
+    color: var(--font-color-secondary);
+    font-weight: lighter;   
+    padding: 12px 10px;
+    border-bottom: var(--border);
+    text-align: left;
+    border-right: var(--border);    
+}
+
+.tabela-usuarios td{   
+    word-break: break-word;
+    color: var(--font-color-primary);
+    font-weight: lighter;
+    padding: 5px 10px;
+    text-align: left;
+    border-right: var(--border);
+}
+
+.tabela-usuarios tr:hover{
+    background: var(--secondary-color);
+}
+
+.tabela-usuarios tr{
+    border-bottom:var(--border);
+}
+
+.tabela-usuarios tr:last-child{
+    border-bottom: none;
+}
+
+.table-action{    
+    text-align: center !important;
+    border-right: unset !important;
+    width: 110px;  
+}
+
+.action-hover:hover{    
+    color: var(--font-color-hover);
+    cursor: pointer;
+}
+
+/* tabela mobile */
+@media(max-width: 1200px) {
+
+    .input-edit{
+        text-align: end;
+    }
+
+    .table-id{
+        width: 100% !important;
+        text-align: end !important;
+    }
+
+    .tabela-usuarios td::before{
+        content: attr(data-label);
+        position: absolute;
+        left:0;        
+        padding-left:10px;
+        font-size:15px;
+        font-weight: bold;
+        text-align: left;
+    }  
+
+    .table-action{
+        display: flex;
+        justify-content: center;
+        width: 100%;        
+        background: var(--tertiary-color);
+        border-radius: 0px 0px 3px 3px;
+    }
+
+    .tabela-usuarios tr{
+        margin: 0 auto;
+        display: block;
+        width: 95%;  
+        position: relative;     
+        border-bottom: none;  
+        background: var(--secondary-color);   
+        margin-bottom: 10px;  
+        margin-top: unset !important;
+        border-radius: 3px;
+        border: var(--border);
+    }
+
+    .tabela-usuarios tr:first-child{
+        border: unset;        
+    }
+
+    .tabela-usuarios td{
+        border-right: none;
+        display: block;       
+        text-align: end;    
+        border-bottom: var(--border);    
+    }    
+
+    .tabela-usuarios td:nth-last-child(2){
+        border-bottom: none; 
+    }
+
+    .tabela-usuarios td:nth-last-child(1){
+        border-bottom: none; 
+    }
+
+    .tabela-usuarios tr:hover{
+        background: none;        
+    }
+
+    .tabela-usuarios th{
+        display: none;
+    }
+}
+/* end tabela mobile */
+/* end tebela */
+
+/* modile */
+@media(max-width: 1000px) {
+    body{   
+        grid-template-areas:
+            "main main main"
+            "main main main" !important;
+    }
+
+    .main{
+        margin-left: unset;
+    }
+
+    .footer{
+        display: none;
+    }
+
+    .header{  
+        z-index: 100;
+        grid-area: unset !important;   
+        position: fixed;  
+        left: -120%;
+        height: 100%;          
+        transition: all .3s ease-in-out;
+    }
+
+    .icon-burger{
+        display: block !important;
+    }
+
+    .header-active{
+        left: 0px !important;
+    }
+
+    nav :checked~.icon-burger .line:nth-child(1) {
+        transform: rotate(-45deg) translate(-8px, 8px);
+    }
+
+    nav :checked~.icon-burger .line:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -7px);
+    }
+
+    nav :checked~.icon-burger .line:nth-child(2) {
+        opacity: 0;
+    }
+}
+/* end modile */
+
+/* notification */
+.notification{
+    top: 5px;
+    z-index: 150;  
+    position: fixed;
+    width: fit-content;
+    max-width: 98%;   
+    margin: 0 auto; /* Will not center vertically and won't work in IE6/7. */
+    left: 0;
+    right: 0;
+    padding: 5px 8px;    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    border: var(--border);
+    background: var(--secondary-color);
+}
+
+.notification p {  
+    /* text-transform: uppercase; */
+    text-align: center;
+    font-size: 16px;
+    font-weight: bolder;
+}
+/* end notification */
+
+
+/* cadastro form */
+.ntf-cadastro{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.cadastro{
+    margin: 0 auto;    
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 95%;   
+}
+
+.form-cadastro{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    max-width: 95%;
+}
+
+.div-login-input .material-icons{
+    margin-right: 5px;
+    margin-left: 2px;
+}
+
+.login-input{
+    width: 100%;
+    font-size: 18px;
+    color: var(--font-color-primary);
+    font-weight: lighter;
+    background: none;
+    border: var(--border);
+    border-radius: 4px;
+    padding: 4px 8px;
+    margin-bottom: 5px;
+}
+
+.login-input:focus{
+    background: var(--secondary-color);
+    border-color: var(--font-color-hover);
+}
+
+.btn-submit{
+    border: var(--border);
+    background:var(--secondary-color);
+    border-radius: 4px;
+    width: 100%;
+    font-size: 16px;
+    padding: 6px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.btn-submit:hover{
+    color: white;
+    background: var(--font-color-hover);
+    border: 1px solid var(--font-color-hover);
+}
+
+.login-input::placeholder{    
+    font-size: 16px;
+}
+/* end cadastro form */

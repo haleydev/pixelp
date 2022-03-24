@@ -1,0 +1,21 @@
+{
+    "description": "PHP Router MVC",
+    "authors": [
+        {
+            "name": "Warley Rodrigues",
+            "email": "haleytrader@hotmail.com"             
+        }
+    ],
+    "autoload": {
+        "psr-4": {            
+            "Core\\": "Core/", 
+            "Model\\": "Model/",
+            "Controller\\": "Controllers/", 
+            "Controller\\View\\": "Controllers/Views"      
+        }
+    },
+    
+    "require": {
+       
+    }
+}

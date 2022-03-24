@@ -1,0 +1,127 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    scroll-behavior: smooth;
+    color: var(--font-color-primary);
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+:root{
+    --primary-color: rgb(230 230 230);
+    --secondary-color: rgb(215 215 215);
+    --font-color-primary: rgb(75, 75, 75);    
+    --font-color-hover: rgb(180, 75, 75);
+    --border: 1px solid rgb(185, 185, 185);
+}
+
+.darkmode{
+    --primary-color: #242424;
+    --secondary-color: rgb(45 45 45);    
+    --font-color-primary: rgb(185 185 185);    
+    --font-color-hover: rgb(180, 75, 75);
+    --border: 1px solid rgb(60 60 60);
+}
+
+.display-none{
+    display: none;
+}
+
+.notification{
+    margin-bottom: 8px;
+    color: var(--font-color-hover);
+}
+
+body{
+    background: var(--primary-color);
+    min-height: 100vh;    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main{
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    width: 350px;
+    max-width: 98%;
+}
+
+.btn-dark{
+    position: absolute;
+    top: 5px;
+    right: 5px;   
+}
+
+.btn-dark .material-icons{
+    padding: 8px;
+    cursor: pointer !important;
+    font-size: 28px;
+}
+
+.btn-dark .material-icons:hover{
+    color: var(--font-color-hover);
+}
+
+.copy{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.form-login{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.div-login-input{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 12px;
+    border: var(--border);
+    border-radius: 4px;
+    padding: 5px 8px;
+}
+
+.form-login .material-icons{
+    font-size: 28px;
+}
+
+.login-input{
+    font-size: 18px;
+    background: none;
+    border: none;
+    width: 100%;
+    padding: 5px 8px;
+}
+
+.btn-submit{
+    border: var(--border);
+    background: var(--secondary-color);
+    border-radius: 4px;
+    font-size: 20px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    padding: 5px 0px;
+    cursor: pointer;
+}
+
+.btn-submit:hover{
+    background: var(--font-color-hover);
+    border-color: var(--font-color-hover);
+    color: white;
+}
