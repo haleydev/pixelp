@@ -117,7 +117,8 @@
                             if(strlen($novo) <= 5){
                                 $notificacao = "<p class='red'>Senha muito curta</p>";
                             }else{
-                                $queryupdate = "UPDATE usuarios SET senha='$novo' where id='$userid'";
+                                $c_rash = password_hash($novo.'sdioufgisdfugndikofugniksdufgn', PASSWORD_DEFAULT); 
+                                $queryupdate = "UPDATE usuarios SET senha='$c_rash' where id='$userid'";
                                 if(mysqli_query($conexao->conect, $queryupdate)){
                                     $notificacao = "<p class='green'>Senha do usuario '$ver_result->nome' atualizada</p>";
                                 }
