@@ -60,7 +60,7 @@ if(isset($_POST['pesquisa']) and $quantidadepesquisa > 0 and strlen($filtersearc
       <td title="Clique para editar" class="field-editable" campo="telefone" iduser="<?=$userinfo->id?>" data-label="Telefone"><?=$userinfo->telefone?></td>
       <td title="Clique para editar" class="field-editable" campo="acesso" iduser="<?=$userinfo->id?>" data-label="Nivel de acesso"><?=$userinfo->acesso?></td>
       <td data-label="Data de cadastro"><?=$userinfo->data_cadastro?></td>
-      <?php if($_SESSION['usr-acesso'] == "master"):?> <td title="Clique para editar" class="field-editable" campo="senha" iduser="<?=$userinfo->id?>" data-label="Nivel de acesso">Alterar senha</td> <?php endif;?>
+      <?php if($_SESSION['usr-acesso'] == "master"):?> <td title="Clique para editar" class="field-editable campo-senha" campo="senha" iduser="<?=$userinfo->id?>" data-label="Senha"></td> <?php endif;?>
       <td title="Cuidado!" campo="excluir" iduser="<?=$userinfo->id?>" class="table-action action-hover field-editable">EXCLUIR</td>
    </tr> 
    <?php endwhile;?>   
@@ -78,21 +78,30 @@ if($quantidadepesquisa == 0):?>
          var userid = $(this).attr('iduser');
          var campo = $(this).attr('campo');
 
-         if(campo != "excluir"){
-            $(this).addClass("celulaEmEdicao");
-            $(this).html("<input class='input-edit' type='text' value='" + conteudoOriginal + "' />");
-            $(this).children().first().focus();
-         }else{
-            var infEdit = userid + "," + campo;
-            $.ajax({
-                  type:'post',
-                  url:'<?=URL?>/editar',                
-                  data:{tabela: infEdit}, 
-                  success:function(resultado){
-                     $("#main").html(resultado);
-                  }
-            });  
-         }
+         switch(campo) {
+            case "senha":
+               $(this).addClass("celulaEmEdicao");
+               $(this).html("<input class='input-edit' type='password' value='" + conteudoOriginal + "' />");
+               $(this).children().first().focus();
+            break;
+           
+            case "excluir":
+               var infEdit = userid + "," + campo;
+                  $.ajax({
+                        type:'post',
+                        url:'<?=URL?>/editar',                
+                        data:{tabela: infEdit}, 
+                        success:function(resultado){
+                           $("#main").html(resultado);
+                        }
+                  }); 
+            break;
+
+            default:
+               $(this).addClass("celulaEmEdicao");
+               $(this).html("<input class='input-edit' type='text' value='" + conteudoOriginal + "' />");
+               $(this).children().first().focus();
+         }   
 
          $(this).children().first().keypress(function (e) {
                if (e.which == 13) {

@@ -249,6 +249,10 @@ h1{
 /* end header */
 
 /* tabela */
+.campo-senha{
+    min-height: 31px;
+}
+
 .input-edit{
     width: 100%;
     border: none;
