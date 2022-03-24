@@ -208,7 +208,7 @@ h1{
     width: 100%;
 }
 
-.links li p{
+.links li .btn-menu{
     cursor: pointer;
   
     text-align: center;
@@ -221,7 +221,7 @@ h1{
     
 }
 
-.links li p:hover{
+.links li .btn-menu :hover{
     color: var(--font-color-hover);
 }
 
@@ -528,6 +528,10 @@ h1{
     color: white;
     background: var(--font-color-hover);
     border: 1px solid var(--font-color-hover);
+}
+
+.login-input:focus::-webkit-input-placeholder {
+    color:var(--font-color-primary) !important ;
 }
 
 .login-input::placeholder{    
