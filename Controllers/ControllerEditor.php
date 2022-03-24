@@ -1,5 +1,5 @@
 <?php
-use Model\Conexao;
+    use Model\Conexao;
     if(isset($_POST['tabela'])){        
 
         $dados = explode(',',filter_var($_POST['tabela'], FILTER_SANITIZE_SPECIAL_CHARS));
@@ -107,6 +107,21 @@ use Model\Conexao;
                             if(mysqli_query($conexao->conect, $excluiruser)){
                                 $notificacao = "<p class='red'>Usuário $ver_result->nome excluido</p>";
                             } 
+                        }                                     
+                    break;
+
+                    case "senha":
+                        if($_SESSION['usr-acesso'] != "master"){
+                            $notificacao = "<p class='red'>Sem permissão para alterar senha</p>";
+                        }else{
+                            if(strlen($novo) <= 5){
+                                $notificacao = "<p class='red'>Senha muito curta</p>";
+                            }else{
+                                $queryupdate = "UPDATE usuarios SET senha='$novo' where id='$userid'";
+                                if(mysqli_query($conexao->conect, $queryupdate)){
+                                    $notificacao = "<p class='green'>Senha do usuario '$ver_result->nome' atualizada</p>";
+                                }
+                            }                            
                         }                                     
                     break;
                 endswitch;

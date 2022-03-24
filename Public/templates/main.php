@@ -59,47 +59,40 @@
 </footer>
 
 <script>
-
-const summary = document.querySelectorAll('.btn-menu');
-for (let i = 0; i < summary.length; i++){
-    const el = summary[i];
-    el.onclick = () => {
-        for (let j = 0; j < summary.length; j++) {
-        const color = summary[j] === el ? 'rgb(183 83 83)' : 'var(--font-color-primary)';
-        summary[j].style.color = color;
-        }
-    } 
-}
-
-
-function menu(menun){             
-    $.ajax({                
-        url: '/menu',
-        type: "POST",
-        data: {menu:$(menun).val()},
-        success:function(resultmenu){                   
-            $("#main").html(resultmenu);
-        }
-    })
-};
-
-
-
-
-   
-
-$(document).ready(function(){
-    $("#search_input").keyup(function(){
-        $.ajax({
-            type:'POST',
-            url:'/tabela',                
-            data:{pesquisa: $('#search_input').val()}, 
-            success:function(result){
-                $("#main").html(result);
+    const summary = document.querySelectorAll('.btn-menu');
+    for (let i = 0; i < summary.length; i++){
+        const el = summary[i];
+        el.onclick = () => {
+            for (let j = 0; j < summary.length; j++) {
+            const color = summary[j] === el ? 'rgb(183 83 83)' : 'var(--font-color-primary)';
+            summary[j].style.color = color;
             }
+        } 
+    }
+
+    function menu(menun){             
+        $.ajax({                
+            url: '/menu',
+            type: "POST",
+            data: {menu:$(menun).val()},
+            success:function(resultmenu){                   
+                $("#main").html(resultmenu);
+            }
+        })
+    };   
+
+    $(document).ready(function(){
+        $("#search_input").keyup(function(){
+            $.ajax({
+                type:'POST',
+                url:'/tabela',                
+                data:{pesquisa: $('#search_input').val()}, 
+                success:function(result){
+                    $("#main").html(result);
+                }
+            });
         });
     });
-});
 </script>  
 <script src="<?=URL?>/js/main.js"></script>
 

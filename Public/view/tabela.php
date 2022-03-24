@@ -7,8 +7,8 @@ $conexao->conect;
 $q = "";
 if(isset($_POST['pesquisa'])){
    $filtersearch = filter_var($_POST['pesquisa'], FILTER_SANITIZE_SPECIAL_CHARS);
-   if(strlen($filtersearch) > 3){
-      $q = "WHERE nome like '%$filtersearch%'";
+   if(strlen($filtersearch) >= 1){
+      $q = "WHERE nome like '%$filtersearch%' or email like '%$filtersearch%' or id like '%$filtersearch%' or telefone like '%$filtersearch%'";
    }      
 }
 $selectusers = "SELECT * FROM usuarios $q ORDER BY id ASC";
@@ -20,7 +20,7 @@ $selectquantidade = "SELECT id FROM usuarios";
 $queryquantidade = mysqli_query($conexao->conect, $selectquantidade);
 $quantidadetotal = mysqli_num_rows($queryquantidade);
 
-if(isset($_POST['pesquisa']) and $quantidadepesquisa > 0 and strlen($filtersearch) > 3):?>
+if(isset($_POST['pesquisa']) and $quantidadepesquisa > 0 and strlen($filtersearch) >= 1):?>
 
 <script>
    $("#total_results").html('<?=$quantidadepesquisa?> resultados para <?=$filtersearch?>');
@@ -47,6 +47,7 @@ if(isset($_POST['pesquisa']) and $quantidadepesquisa > 0 and strlen($filtersearc
       <th>Telefone</th>
       <th>Nivel de acesso</th>
       <th>Data de cadastro</th>
+      <?php if($_SESSION['usr-acesso'] == "master"):?> <th>Senha</th> <?php endif;?>
       <th class="table-action">Ações</th>  
    </tr>       
    <?php   
@@ -59,6 +60,7 @@ if(isset($_POST['pesquisa']) and $quantidadepesquisa > 0 and strlen($filtersearc
       <td title="Clique para editar" class="field-editable" campo="telefone" iduser="<?=$userinfo->id?>" data-label="Telefone"><?=$userinfo->telefone?></td>
       <td title="Clique para editar" class="field-editable" campo="acesso" iduser="<?=$userinfo->id?>" data-label="Nivel de acesso"><?=$userinfo->acesso?></td>
       <td data-label="Data de cadastro"><?=$userinfo->data_cadastro?></td>
+      <?php if($_SESSION['usr-acesso'] == "master"):?> <td title="Clique para editar" class="field-editable" campo="senha" iduser="<?=$userinfo->id?>" data-label="Nivel de acesso">Alterar senha</td> <?php endif;?>
       <td title="Cuidado!" campo="excluir" iduser="<?=$userinfo->id?>" class="table-action action-hover field-editable">EXCLUIR</td>
    </tr> 
    <?php endwhile;?>   

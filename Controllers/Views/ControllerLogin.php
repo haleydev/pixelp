@@ -50,8 +50,6 @@ class ControllerLogin
                 }      
             }
             $conexao->close();
-        }else{
-
         }
     }
 }
