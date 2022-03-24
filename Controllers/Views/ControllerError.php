@@ -11,4 +11,3 @@ class ControllerError
         require  "./Public/view/$this->view.php"; 
     }
 }
-    

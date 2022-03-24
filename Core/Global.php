@@ -8,7 +8,7 @@ if(!isset($_SESSION)){
 ob_start();
 
 // router functions
-function view($view){
+function renderView($view){
     $file = './Public/view/'.$view.'.php';
     if(file_exists($file)){        
         require $file;                               
@@ -22,10 +22,9 @@ function mvcget($variable){
         $array = get_defined_constants(true)["user"]; 
         return $array[$variable];
     }else{
-        return "INDEFINED";
+        return "UNDEFINED";
     }
 }
-
 
 // url config
 if($_SERVER["HTTP_HOST"] == "localhost"){

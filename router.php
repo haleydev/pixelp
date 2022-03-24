@@ -5,28 +5,26 @@ require './Core/Global.php';
 use Controller\View\{ControllerHome, ControllerLogin, ControllerError};
 use Controller\{ControllerLogoff};
 use Core\App;
-$router = new App;
+$app = new App;
 
 
 if(isset($_SESSION['nome'])){        
-    $router->view("", function(){(new ControllerHome)->render_home();});
-    $router->view("logoff", function(){(new ControllerLogoff)->logoff();}); 
+    $app->url("", function(){(new ControllerHome)->render_home();});
+    $app->url("logoff", function(){(new ControllerLogoff)->logoff();}); 
 
     // ajax
-    $router->view("tabela", function(){view('tabela');}, "POST");
-    $router->view("cadastro", "./Controllers/ControllerCadastro.php", "POST");
-    $router->view("menu", "./Controllers/ControllerMenu.php", "POST");
-    $router->view("editar", "./Controllers/ControllerEditor.php", "POST");
+    $app->post("tabela", function(){renderView('tabela');}, "POST");
+    $app->post("cadastro", "./Controllers/ControllerCadastro.php", "POST");
+    $app->post("menu", "./Controllers/ControllerMenu.php", "POST");
+    $app->post("editar", "./Controllers/ControllerEditor.php", "POST");
 }else{        
     // tela de login
-    $router->view("", function(){(new ControllerLogin)->render_login();});
-    $router->view("login", function(){(new ControllerLogin)->login();} , "POST");    
+    $app->url("", function(){(new ControllerLogin)->render_login();});
+    $app->post("login", function(){(new ControllerLogin)->login();} , "POST");    
 }
 
 //Files routers
-$router->file("/sitemap.xml", "./Controllers/sitemap.php");
-$router->file("/robots.txt", "./Controllers/robots.php");
+$app->file("/sitemap.xml", "./Controllers/sitemap.php");
+$app->file("/robots.txt", "./Controllers/robots.php");
 
-if($router->valid == false){
-    (new ControllerError)->render_error();
-}
+$app->end();
