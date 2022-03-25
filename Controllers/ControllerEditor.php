@@ -1,7 +1,6 @@
 <?php
     use Model\Conexao;
-    if(isset($_POST['tabela'])){        
-
+    if(isset($_POST['tabela'])){ 
         $dados = explode(',',filter_var($_POST['tabela'], FILTER_SANITIZE_SPECIAL_CHARS));
         $userid = $dados[0] ?? "";   
         $campo = $dados[1] ?? "";  
@@ -126,8 +125,9 @@
                         }                                     
                     break;
                 endswitch;
-            }          
-        }
+            }  
+            $conexao->close();        
+        }        
     }
 
     $_SESSION['notification'] = $notificacao ?? "";

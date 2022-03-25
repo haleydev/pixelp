@@ -2,7 +2,6 @@
 use Model\Conexao;
 $conexao = new Conexao;
 $conexao->mysqli();
-$conexao->conect;
 
 $q = "";
 if(isset($_POST['pesquisa'])){

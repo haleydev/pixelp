@@ -16,7 +16,6 @@
 <header id="header" class="header"> 
     <div class="header-p1">
         <h1>Gerenciador de usuários</h1>
-
         <div class="btns-header">
             <input type='checkbox' id='darkmod' value='Dark Mod' class='display-none'>
             <label title='ligar/deligar modo noturno' for='darkmod'><span class="material-icons">nights_stay</span></label>

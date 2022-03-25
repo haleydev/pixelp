@@ -74,4 +74,5 @@ if(isset($_POST['nome'])){
             echo "<p class='green'>CADASTRADO COM SUCESSO</p>";
         }
     }
+    $conexao->close();
 }
