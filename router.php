@@ -22,7 +22,7 @@ if(isset($_SESSION['nome'])){
     $app->post("login", function(){(new ControllerLogin)->login();});    
 }
 
-//Files routers
+// files routers
 $app->file("/sitemap.xml", "./Controllers/sitemap.php");
 $app->file("/robots.txt", "./Controllers/robots.php");
 

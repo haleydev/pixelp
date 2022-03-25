@@ -33,7 +33,6 @@ if($_SERVER["HTTP_HOST"] == "localhost"){
     define("URL", "https://infinityfilmes.net"); 
 }
 
-
 // functions front-end
 function active($link){
     $linkatual = filter_var(urldecode($_SERVER['REQUEST_URI']), FILTER_SANITIZE_URL);              
