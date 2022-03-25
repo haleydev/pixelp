@@ -13,10 +13,12 @@
 </head>
 <body>
 <div id="main" class="main"> 
-        <div class="btn-dark">
-            <input type='checkbox' id='darkmod' value='Dark Mod' class='display-none'>
-            <label title='ligar/deligar modo noturno' for='darkmod'><span class="material-icons">nights_stay</span></label>
-        </div>        
+    <img class="logo-login" src="<?=URL?>/images/logo.png" alt="logo">
+
+    <div class="btn-dark">
+        <input type='checkbox' id='darkmod' value='Dark Mod' class='display-none'>
+        <label title='ligar/deligar modo noturno' for='darkmod'><span class="material-icons">nights_stay</span></label>
+    </div>        
       
     <form method="POST" id="form_login" action="<?=URL?>/login" class="form-login">
         <h1 class="display-none">Pixelp Project</h1>
