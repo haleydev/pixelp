@@ -67,8 +67,7 @@ if(isset($_POST['pesquisa']) and $quantidadepesquisa > 0 and strlen($filtersearc
 <?php
 if($quantidadepesquisa == 0):?>
    <p class="sem-resultados">Sem resultados</p>
-<?php endif;?>
-<?php $conexao->close()?>
+<?php endif; $conexao->close()?>
 
 <script> 
    $(function () {

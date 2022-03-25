@@ -1,6 +1,5 @@
 <?php
 namespace Core;
-
 use Controller\View\ControllerError;
 
 class App 

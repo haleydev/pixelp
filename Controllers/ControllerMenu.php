@@ -19,4 +19,3 @@ if(isset($_POST['menu'])){
         <?php break;
     endswitch;  
 }
-?>
